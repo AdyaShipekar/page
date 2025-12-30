@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iGEM 2025 | Project Wiki</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #7aa7ff;
+      --primary-dark: #557fd6;
+      --background: #f9fbff;
+      --surface: #ffffff;
+      --accent: #e6efff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--text-main);
+      line-height: 1.75;
+      display: flex;
+    }
+
+    /* ---------------- SIDEBAR ---------------- */
+    aside {
+      width: 260px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      overflow-y: auto;
+    }
+
+    aside h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--primary-dark);
+      margin-bottom: 2rem;
+    }
+
+    aside nav ul { list-style: none; }
+
+    aside nav li { margin-bottom: 0.75rem; }
+
+    aside nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    aside nav a:hover { color: var(--primary-dark); }
+
+    /* ---------------- MAIN CONTENT ---------------- */
+    main {
+      margin-left: 260px;
+      padding: 4rem 5vw;
+      max-width: 1100px;
+    }
+
+    section {
+      margin-bottom: 6rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    section h3 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    section p {
+      color: var(--text-muted);
+      max-width: 900px;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ---------------- CONTENT BLOCK ---------------- */
+    .content-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    /* ---------------- IMAGE PLACEHOLDER ---------------- */
+    .image-placeholder {
+      border: 2px dashed var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      margin-left: 260px;
+      padding: 3rem 5vw;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 900px) {
+      aside {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      main, footer { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <h1>iGEM 2025</h1>
+    <nav>
+      <ul>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#design">Design</a></li>
+        <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#modeling">Modeling</a></li>
+        <li><a href="#human-practices">Human Practices</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+
+    <section id="project">
+      <h2>Project Overview</h2>
+      <p>
+        This section will introduce the core idea of your iGEM project. Once a
+        topic is chosen, describe the problem, who it affects, and why current
+        solutions are insufficient.
+      </p>
+      <div class="content-block">
+        <p>
+          Use this space to clearly frame your guiding research question and
+          summarize your proposed synthetic biology approach.
+        </p>
+      </div>
+    </section>
+
+    <section id="background">
+      <h2>Background & Motivation</h2>
+      <p>
+        Provide scientific and societal context. Judges expect to see evidence
+        of literature review, stakeholder input, and a clear rationale for why
+        this project matters.
+      </p>
+
+      <div class="image-placeholder">
+        Optional image: literature overview diagram, biological pathway, or
+        problem illustration
+      </div>
+    </section>
+
+    <section id="design">
+      <h2>System Design</h2>
+      <p>
+        Explain the high-level architecture of your system. Break it down into
+        sensing, processing, and output modules.
+      </p>
+      <div class="content-block">
+        <h3>Modularity</h3>
+        <p>
+          Describe how individual components can be independently tested and
+          optimized.
+        </p>
+      </div>
+    </section>
+
+    <section id="engineering">
+      <h2>Engineering Cycle</h2>
+      <p>
+        Document your design–build–test–learn iterations. This is a core judging
+        criterion and should evolve throughout the season.
+      </p>
+
+      <div class="image-placeholder">
+        Optional image: DBTL cycle diagram or experimental workflow
+      </div>
+    </section>
+
+    <section id="modeling">
+      <h2>Modeling</h2>
+      <p>
+        Mathematical and computational modeling used to predict behavior,
+        optimize parameters, or interpret experimental results.
+      </p>
+    </section>
+
+    <section id="human-practices">
+      <h2>Human Practices</h2>
+      <p>
+        Integrated Human Practices should demonstrate how ethical reflection
+        and stakeholder engagement shaped your technical decisions.
+      </p>
+    </section>
+
+    <section id="safety">
+      <h2>Safety & Responsibility</h2>
+      <p>
+        Discuss biological safety, risk mitigation, and responsible research
+        practices embedded in your project design.
+      </p>
+    </section>
+
+    <section id="team">
+      <h2>Team</h2>
+      <p>
+        Introduce your team members, roles, advisors, and acknowledgements.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 iGEM Team · International Genetically Engineered Machine Competition</p>
+  </footer>
+
+  <script>
+    /* Scroll-triggered fade-in animation */
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+</body>
+</html>
