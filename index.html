@@ -19,12 +19,45 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.8;
   font-size: 1.15rem;
+}
+
+/* ---------- NAV ---------- */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-inner a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  margin-left: 1.5rem;
+}
+
+.nav-inner a:hover {
+  color: var(--blue);
 }
 
 /* ---------- HERO ---------- */
@@ -44,8 +77,8 @@ body {
 }
 
 @keyframes bgPulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.1); }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
 
@@ -54,7 +87,6 @@ body {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.35);
-  z-index: 1;
 }
 
 .hero-content {
@@ -101,8 +133,8 @@ body {
 }
 
 @keyframes pulse {
-  0%   { opacity: 0.45; }
-  50%  { opacity: 0.7; }
+  0% { opacity: 0.45; }
+  50% { opacity: 0.7; }
   100% { opacity: 0.45; }
 }
 
@@ -125,12 +157,19 @@ h2 {
   font-family: 'DM Serif Display', serif;
   font-size: 3rem;
   color: var(--blue);
-  margin-bottom: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-/* ---------- STATS ---------- */
+/* ---------- STATS GRID ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  text-align: center;
+}
+
 .stat {
-  font-size: 4.8rem;
+  font-size: 5.2rem;
   font-weight: 700;
   color: var(--blue);
 }
@@ -138,10 +177,10 @@ h2 {
 .stat-label {
   font-size: 1.3rem;
   color: var(--muted);
-  margin-bottom: 3.5rem;
+  margin-top: 0.5rem;
 }
 
-/* ---------- PLACEHOLDERS ---------- */
+/* ---------- PLACEHOLDER ---------- */
 .placeholder {
   margin: 2.5rem 0;
   padding: 2.5rem;
@@ -165,7 +204,20 @@ footer {
 
 <body>
 
-<!-- HERO -->
+<nav>
+  <div class="nav-inner">
+    <strong>GRANULYZE</strong>
+    <div>
+      <a href="#impact">Impact</a>
+      <a href="#biology">Biology</a>
+      <a href="#solution">Solution</a>
+      <a href="#comparison">Results</a>
+      <a href="#video">Video</a>
+      <a href="#references">References</a>
+    </div>
+  </div>
+</nav>
+
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -177,7 +229,6 @@ footer {
   </div>
 </section>
 
-<!-- NEURONS -->
 <div class="neuron-layer" id="neurons">
   <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
   <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
@@ -189,19 +240,25 @@ footer {
   <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
 </div>
 
-<!-- IMPACT -->
-<section class="section">
+<section class="section" id="impact">
   <h2>The Impact of ALS</h2>
-  <div class="stat" data-target="90">0</div>
-  <div class="stat-label">Minutes between ALS diagnoses worldwide</div>
-  <div class="stat" data-target="48">0</div>
-  <div class="stat-label">Average months of life expectancy post-diagnosis</div>
-  <div class="stat" data-target="70">0</div>
-  <div class="stat-label">Percent projected global increase by 2040</div>
+  <div class="stats-grid">
+    <div>
+      <div class="stat" data-target="90">0</div>
+      <div class="stat-label">Minutes between diagnoses</div>
+    </div>
+    <div>
+      <div class="stat" data-target="48">0</div>
+      <div class="stat-label">Months life expectancy</div>
+    </div>
+    <div>
+      <div class="stat" data-target="70">0</div>
+      <div class="stat-label">Percent increase by 2040</div>
+    </div>
+  </div>
 </section>
 
-<!-- BIOLOGY -->
-<section class="section">
+<section class="section" id="biology">
   <h2>The Biology Behind ALS</h2>
   <p>
     Under cellular stress, neurons form stress granules to protect RNA.
@@ -210,8 +267,7 @@ footer {
   <div class="placeholder">Cellular mechanism illustration</div>
 </section>
 
-<!-- SOLUTION -->
-<section class="section">
+<section class="section" id="solution">
   <h2>Our Dual-Layered Solution</h2>
   <p>
     Granulyze combines antisense oligonucleotides with RNA aptamers
@@ -220,21 +276,18 @@ footer {
   <div class="placeholder">Therapeutic strategy diagram</div>
 </section>
 
-<!-- BEFORE / AFTER -->
-<section class="section">
+<section class="section" id="comparison">
   <h2>Before and After Treatment</h2>
   <div class="placeholder">Untreated neuron</div>
   <div class="placeholder">Post-treatment neuron</div>
 </section>
 
-<!-- VIDEO -->
-<section class="section">
+<section class="section" id="video">
   <h2>Project Overview Video</h2>
   <div class="placeholder">Embedded video</div>
 </section>
 
-<!-- REFERENCES -->
-<section class="section">
+<section class="section" id="references">
   <h2>References & Support</h2>
   <div class="placeholder">Sponsor logos</div>
 </section>
@@ -277,46 +330,30 @@ document.querySelectorAll(".stat").forEach(stat => {
   }, { threshold: 0.6 }).observe(stat);
 });
 
-/* NEURON MOTION WITH COLLISION AVOIDANCE */
-const neurons = [...document.querySelectorAll(".neuron")];
-const data = neurons.map((n, i) => ({
-  el: n,
-  left: i < 4,
-  x: i < 4 ? 40 : window.innerWidth - 240,
-  y: Math.random() * (window.innerHeight - 300) + 150,
-  vx: (Math.random() * 0.3 + 0.15) * (i < 4 ? 1 : -1),
-  vy: Math.random() * 0.3 + 0.15,
-  rot: Math.random() * 360
-}));
+/* STABLE NEURON MOTION */
+const neurons = document.querySelectorAll(".neuron");
+neurons.forEach((n, i) => {
+  const left = i < 4;
+  let x = left ? 40 : window.innerWidth - 200;
+  let y = Math.random() * (window.innerHeight - 300) + 150;
+  let vx = (Math.random() * 0.25 + 0.15) * (left ? 1 : -1);
+  let vy = Math.random() * 0.25 + 0.15;
+  let rot = Math.random() * 360;
 
-function animateNeurons() {
-  data.forEach((a, i) => {
-    const minX = a.left ? 20 : window.innerWidth - 300;
-    const maxX = a.left ? 160 : window.innerWidth - 160;
+  function animate() {
+    x += vx;
+    y += vy;
+    rot += 0.05;
 
-    a.x += a.vx;
-    a.y += a.vy;
-    a.rot += 0.05;
+    if (left && (x < 20 || x > 160)) vx *= -1;
+    if (!left && (x < window.innerWidth - 300 || x > window.innerWidth - 160)) vx *= -1;
+    if (y < 120 || y > window.innerHeight - 220) vy *= -1;
 
-    if (a.x < minX || a.x > maxX) a.vx *= -1;
-    if (a.y < 120 || a.y > window.innerHeight - 220) a.vy *= -1;
-
-    data.forEach((b, j) => {
-      if (i === j) return;
-      let dx = a.x - b.x;
-      let dy = a.y - b.y;
-      let dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 140) {
-        a.vx += dx * 0.0008;
-        a.vy += dy * 0.0008;
-      }
-    });
-
-    a.el.style.transform = `translate(${a.x}px, ${a.y}px) rotate(${a.rot}deg)`;
-  });
-  requestAnimationFrame(animateNeurons);
-}
-animateNeurons();
+    n.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+});
 </script>
 
 </body>
