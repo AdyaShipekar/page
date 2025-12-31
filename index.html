@@ -3,105 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iGEM 2025 | Granulyze ALS Project</title>
+<title>Granulyze | iGEM 2025</title>
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --primary: #7aa7ff;
-  --primary-dark: #557fd6;
-  --background: #fafcff;
-  --surface: #ffffff;
+  --blue-main: #6b9cff;
+  --blue-soft: #eaf1ff;
   --text-main: #1e293b;
   --text-muted: #64748b;
-  --border: #e2e8f0;
 }
-* { box-sizing: border-box; margin:0; padding:0; }
-body { font-family:'Inter', sans-serif; background:var(--background); color:var(--text-main); line-height:1.7; padding:2rem; }
-.section { margin-bottom:4rem; opacity:0; transform:translateY(30px); transition:opacity 0.8s ease, transform 0.8s ease; }
-.section.visible { opacity:1; transform:translateY(0); }
-h1,h2,h3 { font-family:'DM Serif Display', serif; color:var(--primary-dark); margin-bottom:1rem; }
-h1{ font-size:2.8rem; }
-h2{ font-size:2.2rem; }
-h3{ font-size:1.4rem; margin-top:1.5rem; }
-p{ color:var(--text-muted); margin-bottom:1rem; font-size:1rem; }
-.number-emphasis{ font-size:3rem; font-weight:700; color:var(--primary); margin:0.5rem 0; }
-.placeholder-img{ width:100%; border:2px dashed var(--border); border-radius:12px; text-align:center; padding:2rem; color:var(--text-muted); font-size:0.95rem; margin-top:1.5rem; }
-.solution-block{ border-left:5px solid var(--primary); padding-left:1rem; margin-top:1.5rem; }
-footer{ margin-top:6rem; border-top:1px solid var(--border); padding-top:1.8rem; text-align:center; font-size:0.9rem; color:var(--text-muted);}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fafcff;
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #f2f6ff, #ffffff);
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.5rem;
+  color: var(--blue-main);
+  z-index: 2;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 1rem auto 0;
+  color: var(--text-muted);
+  z-index: 2;
+}
+
+/* Floating neuron images */
+.floating {
+  position: absolute;
+  width: 180px;
+  opacity: 0.25;
+  animation: float 18s infinite ease-in-out;
+}
+
+/* REPLACE src URLs AFTER UPLOADING IMAGES */
+.floating.one { top: 10%; left: 8%; animation-delay: 0s; }
+.floating.two { top: 60%; left: 12%; animation-delay: 4s; }
+.floating.three { top: 20%; right: 10%; animation-delay: 2s; }
+.floating.four { top: 65%; right: 15%; animation-delay: 6s; }
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ---------- CONTENT ---------- */
+.section {
+  max-width: 1000px;
+  margin: 6rem auto;
+  padding: 0 2rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.4rem;
+  color: var(--blue-main);
+  margin-bottom: 1rem;
+}
+
+/* ---------- INTERACTIVE STAT ---------- */
+.stat {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--blue-main);
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  margin-top: 6rem;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  border-top: 1px solid #e2e8f0;
+}
 </style>
 </head>
+
 <body>
 
-<div class="section" id="impact">
-  <h1>Every 90 minutes, someone is diagnosed with and passes from Amyotrophic Lateral Sclerosis (ALS)</h1>
-  <div class="number-emphasis">90</div>
-  <h2>Life expectancy post-diagnosis</h2>
-  <div class="number-emphasis">48 months (~4 years)</div>
-  <h2>Predicted global increase by 2040</h2>
-  <div class="number-emphasis">70%</div>
-  <div class="placeholder-img">Hover map placeholder: Expected ALS statistics 2015 → 2040</div>
-</div>
-
-<div class="section" id="mechanism">
-  <h2>Cellular Mechanism in ALS</h2>
-  <p>Under cellular stress, Stress Granules (SGs) become dysfunctional and form additional "organelles". Excessive SG formation is linked to pathological TDP-43 protein aggregation in neurons.</p>
-  <div class="placeholder-img">Cell with stress granules illustration</div>
-  <div class="placeholder-img">TDP-43 aggregate illustration</div>
-</div>
-
-<div class="section" id="solution">
-  <h2>Our Dual-Approach Solution</h2>
-  <div class="solution-block">
-    <h3>Antisense Oligonucleotide Therapy</h3>
-    <p>Novel antisense oligonucleotides knock down proteins implicated in stress granule formation.</p>
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Granulyze</h1>
+    <p>
+      A synthetic biology approach to slowing neurodegeneration in
+      Amyotrophic Lateral Sclerosis by targeting stress granule pathology.
+    </p>
   </div>
-  <div class="placeholder-img">Antisense oligonucleotide therapy illustration</div>
-  <div class="solution-block">
-    <h3>RNA Aptamer Therapy</h3>
-    <p>Computational modeling and in-vitro testing created RNA aptamers that prevent TDP-43 aggregate formation.</p>
-  </div>
-  <div class="placeholder-img">RNA aptamer therapy illustration</div>
 
-  <h2>Before vs. After Therapy</h2>
-  <div class="placeholder-img">Before therapy illustration</div>
-  <div class="placeholder-img">After therapy illustration</div>
-</div>
+  <!-- Upload neuron images, then replace src -->
+  <img class="floating one" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="floating two" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="floating three" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="floating four" src="https://adyashipekar.github.io/page/neuron.png">
+</section>
 
-<div class="section" id="promo">
-  <h2>Watch Our Promotional Video</h2>
-  <div class="placeholder-img">Embedded video placeholder</div>
-</div>
+<!-- IMPACT -->
+<section class="section reveal">
+  <h2>The Impact of ALS</h2>
+  <div class="stat" data-target="90">0</div>
+  <div class="stat-label">Minutes between ALS diagnoses worldwide</div>
+</section>
 
-<div class="section" id="references">
-  <h2>References</h2>
-  <ul>
-    <li>University of Michigan Health – ALS Facts & Figures</li>
-    <li>Nature Communications, 2016 – TDP-43 and Stress Granules</li>
-    <li>Frontiers in Cellular Neuroscience, 2020 – TDP-43 Pathology Overview</li>
-    <li>Experimental & Molecular Medicine, 2020 – SGs and Neurodegeneration</li>
-  </ul>
+<section class="section reveal">
+  <div class="stat" data-target="48">0</div>
+  <div class="stat-label">Average months of life expectancy post-diagnosis</div>
+</section>
 
-  <h2>Community Supporters</h2>
-  <div class="placeholder-img">Sponsor logos placeholder: IDT, Qualcomm, UCSD, Sanford Burnham Prebys, ALS San Diego</div>
+<section class="section reveal">
+  <div class="stat" data-target="70">0</div>
+  <div class="stat-label">% projected global increase by 2040</div>
+</section>
 
-  <h3>Contact Us</h3>
-  <p>Email: delnorteigem@gmail.com</p>
-  <p>Address: 16601 Nighthawk Ln, San Diego, CA 92127</p>
-  <p>Instagram: @dnhsigem</p>
-</div>
+<!-- MECHANISM -->
+<section class="section reveal">
+  <h2>Why ALS Progresses</h2>
+  <p>
+    Under cellular stress, neurons form stress granules to protect RNA.
+    In ALS, these granules persist, promoting pathological aggregation of
+    TDP-43 and accelerating neuronal death.
+  </p>
+</section>
+
+<!-- SOLUTION -->
+<section class="section reveal">
+  <h2>Our Approach</h2>
+  <p>
+    Granulyze employs a dual-strategy: antisense oligonucleotides to reduce
+    stress granule formation and RNA aptamers to inhibit TDP-43 aggregation.
+  </p>
+</section>
 
 <footer>
-  © 2025 – Content licensed under Creative Commons Attribution 4.0 International.
+  © 2025 iGEM — Content licensed under CC BY 4.0
 </footer>
 
 <script>
-const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
-}, { threshold:0.15 });
-sections.forEach(section => observer.observe(section));
+/* Scroll reveal */
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.2 });
+
+reveals.forEach(r => revealObserver.observe(r));
+
+/* Animated numbers */
+const stats = document.querySelectorAll('.stat');
+const statObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = +el.dataset.target;
+    let count = 0;
+    const step = target / 60;
+
+    const interval = setInterval(() => {
+      count += step;
+      el.textContent = Math.round(count);
+      if (count >= target) {
+        el.textContent = target;
+        clearInterval(interval);
+      }
+    }, 20);
+
+    statObserver.unobserve(el);
+  });
+}, { threshold: 0.6 });
+
+stats.forEach(s => statObserver.observe(s));
 </script>
 
 </body>
