@@ -61,6 +61,12 @@ nav {
   color: var(--blue);
 }
 
+.nav-inner strong {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
 /* ---------- TITLE ---------- */
 .hero {
   position: relative;
@@ -336,7 +342,10 @@ const neurons = document.querySelectorAll(".neuron");
 neurons.forEach((n, i) => {
   const left = i < 4;
   let x = left ? 40 : window.innerWidth - 200;
-  let y = Math.random() * (window.innerHeight - 300) + 150;
+
+  const bandHeight = window.innerHeight / neurons.length;
+  let y = i * bandHeight + bandHeight / 2;
+
   let vx = (Math.random() * 0.25 + 0.15) * (left ? 1 : -1);
   let vy = Math.random() * 0.25 + 0.15;
   let rot = Math.random() * 360;
