@@ -5,225 +5,357 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GRANULYZE | iGEM 2025</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ostrich+Sans+Inline&family=Bodoni+Moda:wght@700&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --blue: #4267b1;
+  --blue: #4b71bd;
   --text: #1e293b;
-  --muted: #64748b;
+  --muted: #496184;
   --bg: #fafcff;
   --navy: #0b1e3a;
-  --light-blue: #eaf3ff;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body { font-family:'Inter',sans-serif; background: var(--bg); color: var(--text); line-height:1.8; font-size:1.15rem; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* NAVBAR */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 1.15rem;
+}
+
+/* ---------- NAV ---------- */
 nav {
   position: fixed;
-  top:0; left:0;
-  width:100%;
-  background: var(--navy);
-  z-index:1000;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(37, 50, 104, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e2e8f0;
 }
-nav ul { display:flex; justify-content:center; gap:2rem; padding:1rem; list-style:none; }
-nav a { color:white; text-decoration:none; font-weight:600; }
-nav a:not(.active) { cursor: default; opacity:0.85; }
 
-/* HERO */
-.hero { position:relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; color:white; }
+.nav-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-inner a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  margin-left: 1.5rem;
+}
+
+.nav-inner a:hover {
+  color: var(--blue);
+}
+
+/* ---------- TITLE ---------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .hero-bg {
-  position:absolute; inset:0;
-  background-image:url("/images/background.jpg"); /* upload your background */
-  background-size:cover;
-  background-position:center;
+  position: absolute;
+  inset: 0;
+  background-image: url("https://adyashipekar.github.io/page/background.png");
+  background-size: cover;
+  background-position: center;
   animation: bgPulse 18s ease-in-out infinite;
 }
-@keyframes bgPulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
-.hero::after { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.35); }
-.hero-content { position:relative; z-index:2; padding:2rem; max-width:900px; }
-.hero h1 { font-family:'Ostrich Sans Inline','Bodoni Moda',serif; font-size:5.6rem; letter-spacing:0.5rem; color:white; }
-.hero p { margin-top:1.8rem; font-size:1.35rem; color:white; }
 
-/* SECTIONS */
-.section { max-width:1100px; margin:7rem auto; padding:0 3rem; opacity:0; transform:translateY(60px); transition:opacity 0.9s ease, transform 0.9s ease; }
-.section.visible { opacity:1; transform:translateY(0); }
-h2 { font-family:'DM Serif Display', serif; font-size:3rem; color: var(--blue); margin-bottom:1.2rem; }
+@keyframes bgPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
 
-/* STATS */
-.stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; text-align:center; }
-.stat { position:relative; padding:3rem; border-radius:20px; background: var(--light-blue); }
-.stat::before { content:""; position:absolute; inset:0; opacity:0.15; background-size:contain; background-repeat:no-repeat; background-position:center; }
-.stat:nth-child(1)::before { background-image: url("/images/clock.svg"); }
-.stat:nth-child(2)::before { background-image: url("/images/calendar.svg"); }
-.stat:nth-child(3)::before { background-image: url("/images/globe.svg"); }
-.stat h3 { font-size:4.8rem; font-weight:700; color:var(--blue); }
-.stat-label { font-size:1.3rem; color: var(--muted); margin-top:0.5rem; }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
 
-/* PLACEHOLDER */
-.placeholder { margin:2.5rem 0; padding:2.5rem; border:2px dashed #dbe4ff; border-radius:16px; text-align:center; color:var(--muted); }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+}
 
-/* NEURONS */
-.neuron-layer { position:fixed; inset:0; pointer-events:none; z-index:2; opacity:0; transition:opacity 0.6s ease; }
-.neuron { position:absolute; width:150px; opacity:0.55; animation:pulse 6s ease-in-out infinite; }
-@keyframes pulse { 0%,100%{opacity:0.45;}50%{opacity:0.7;} }
+.hero h1 {
+  font-family: 'Ostrich Sans Inline', 'Bodoni Moda', serif;
+  font-size: 5.6rem;
+  letter-spacing: 0.5rem;
+  color: #ffffff;
+}
 
-/* REFERENCES */
-.references details { margin-top:2rem; }
-.references summary { font-weight:600; cursor:pointer; }
+.hero p {
+  margin-top: 1.8rem;
+  font-size: 1.35rem;
+  color: #ffffff;
+  max-width: 900px;
+}
 
-/* FOOTER */
-footer { margin-top:7rem; padding:2.5rem; text-align:center; font-size:1rem; color: var(--muted); border-top:1px solid #e2e8f0; }
-.sponsors { display:flex; gap:3rem; overflow:hidden; animation:slide 25s linear infinite; justify-content:center; }
-@keyframes slide { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-.sponsors img { height:80px; }
+/* ---------- FLOATING NEURONS ---------- */
+.neuron-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.neuron {
+  position: absolute;
+  width: 150px;
+  opacity: 0.55;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.45; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.45; }
+}
+
+/* ---------- CONTENT ---------- */
+.section {
+  max-width: 1100px;
+  margin: 7rem auto;
+  padding: 0 3rem;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3rem;
+  color: var(--blue);
+  margin-bottom: 2rem;
+}
+
+/* ---------- STATS GRID ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  text-align: center;
+}
+
+.stat {
+  font-size: 5.2rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.stat-label {
+  font-size: 1.3rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* ---------- PLACEHOLDER ---------- */
+.placeholder {
+  margin: 2.5rem 0;
+  padding: 2.5rem;
+  border: 2px dashed #dbe4ff;
+  border-radius: 16px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  margin-top: 7rem;
+  padding: 2.5rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--muted);
+  border-top: 1px solid #e2e8f0;
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-<ul>
-<li><a href="#hero" class="active">Home</a></li>
-<li><a>Project</a></li>
-<li><a>Model</a></li>
-<li><a>Dry Lab</a></li>
-<li><a>Parts</a></li>
-<li><a>Wet Lab</a></li>
-<li><a>Engagement</a></li>
-<li><a>Team</a></li>
-</ul>
+  <div class="nav-inner">
+    <strong>GRANULYZE</strong>
+    <div>
+      <a href="#impact">Impact</a>
+      <a href="#biology">Biology</a>
+      <a href="#solution">Solution</a>
+      <a href="#comparison">Results</a>
+      <a href="#video">Video</a>
+      <a href="#references">References</a>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="hero">
-<div class="hero-bg"></div>
-<div class="hero-content">
-<h1>GRANULYZE</h1>
-<p>A synthetic biology strategy to mitigate stress-granule-driven neurodegeneration in Amyotrophic Lateral Sclerosis.</p>
-</div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>GRANULYZE</h1>
+    <p>
+      A synthetic biology strategy to mitigate stress-granule-driven
+      neurodegeneration in Amyotrophic Lateral Sclerosis.
+    </p>
+  </div>
 </section>
 
-<!-- NEURONS -->
 <div class="neuron-layer" id="neurons">
-<img class="neuron" src="/images/neuron.png">
-<img class="neuron" src="/images/neuron.png">
-<img class="neuron" src="/images/neuron.png">
-<img class="neuron" src="/images/neuron.png">
-<img class="neuron" src="/images/neuron.png">
-<img class="neuron" src="/images/neuron.png">
-<img class="neuron" src="/images/neuron.png">
-<img class="neuron" src="/images/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
 </div>
 
-<!-- STATS -->
 <section class="section" id="impact">
-<h2>The Impact of ALS</h2>
-<div class="stats-grid">
-<div class="stat"><h3 data-target="90">0</h3><div class="stat-label">Minutes between ALS diagnoses worldwide</div></div>
-<div class="stat"><h3 data-target="48">0</h3><div class="stat-label">Average months of life expectancy post-diagnosis</div></div>
-<div class="stat"><h3 data-target="70">0</h3><div class="stat-label">Percent projected global increase by 2040</div></div>
-</div>
+  <h2>The Impact of ALS</h2>
+  <div class="stats-grid">
+    <div>
+      <div class="stat" data-target="90">0</div>
+      <div class="stat-label">Minutes between diagnoses</div>
+    </div>
+    <div>
+      <div class="stat" data-target="48">0</div>
+      <div class="stat-label">Months life expectancy</div>
+    </div>
+    <div>
+      <div class="stat" data-target="70">0</div>
+      <div class="stat-label">Percent increase by 2040</div>
+    </div>
+  </div>
 </section>
 
-<!-- OTHER SECTIONS -->
 <section class="section" id="biology">
-<h2>The Biology Behind ALS</h2>
-<p>Under cellular stress, neurons form stress granules to protect RNA. In ALS, persistent granules seed pathological TDP-43 aggregation.</p>
-<div class="placeholder">Cellular mechanism illustration</div>
+  <h2>The Biology Behind ALS</h2>
+  <p>
+    Under cellular stress, neurons form stress granules to protect RNA.
+    In ALS, persistent granules seed pathological TDP-43 aggregation.
+  </p>
+  <div class="placeholder">Cellular mechanism illustration</div>
 </section>
 
 <section class="section" id="solution">
-<h2>Our Dual-Layered Solution</h2>
-<p>Granulyze combines antisense oligonucleotides with RNA aptamers to disrupt toxic aggregation pathways.</p>
-<div class="placeholder">Therapeutic strategy diagram</div>
+  <h2>Our Dual-Layered Solution</h2>
+  <p>
+    Granulyze combines antisense oligonucleotides with RNA aptamers
+    to disrupt toxic aggregation pathways.
+  </p>
+  <div class="placeholder">Therapeutic strategy diagram</div>
 </section>
 
 <section class="section" id="comparison">
-<h2>Before and After Treatment</h2>
-<div class="placeholder">Untreated neuron</div>
-<div class="placeholder">Post-treatment neuron</div>
+  <h2>Before and After Treatment</h2>
+  <div class="placeholder">Untreated neuron</div>
+  <div class="placeholder">Post-treatment neuron</div>
 </section>
 
 <section class="section" id="video">
-<h2>Project Overview Video</h2>
-<div class="placeholder">Embedded video</div>
+  <h2>Project Overview Video</h2>
+  <div class="placeholder">Embedded video</div>
 </section>
 
-<section class="section references" id="references">
-<h2>References & Support</h2>
-<details>
-<summary>Click to expand</summary>
-<ul>
-<li>Reference 1</li>
-<li>Reference 2</li>
-<li>Reference 3</li>
-<li>Reference 4</li>
-</ul>
-</details>
+<section class="section" id="references">
+  <h2>References & Support</h2>
+  <div class="placeholder">Sponsor logos</div>
 </section>
-
-<!-- sponsors are limited, could potentially expand-->
 
 <footer>
-<div class="sponsors">
-<img src="/images/sponsor1.png">
-<img src="/images/sponsor2.png">
-<img src="/images/sponsor3.png">
-</div>
-<p>© 2025 iGEM — Creative Commons Attribution 4.0 International</p>
+  © 2025 iGEM — Creative Commons Attribution 4.0 International
 </footer>
 
 <script>
-/* SECTION REVEAL + STAT COUNTUP */
-window.addEventListener("scroll",()=>{
+/* HERO fade + neuron reveal */
+window.addEventListener("scroll", () => {
+  const hero = document.getElementById("hero");
+  const neurons = document.getElementById("neurons");
   const progress = window.scrollY / window.innerHeight;
-  document.getElementById("neurons").style.opacity = progress>0.85 ? 1 : 0;
-});
-document.querySelectorAll(".section").forEach(sec=>{
-  new IntersectionObserver(e=>{
-    if(e[0].isIntersecting) sec.classList.add("visible");
-  },{threshold:0.2}).observe(sec);
-});
-document.querySelectorAll(".stat h3").forEach(stat=>{
-  new IntersectionObserver(e=>{
-    if(!e[0].isIntersecting) return;
-    let val=0,target=+stat.dataset.target,step=target/70;
-    let t=setInterval(()=>{
-      val+=step;
-      stat.textContent=Math.round(val);
-      if(val>=target){stat.textContent=target; clearInterval(t);}
-    },20);
-  },{threshold:0.6}).observe(stat);
+  hero.style.opacity = Math.max(0, 1 - progress * 1.3);
+  if (progress > 0.85) neurons.style.opacity = 1;
 });
 
-/* NEURON ANIMATION - WALLS + COLLISION */
-const neurons=[];
-document.querySelectorAll(".neuron").forEach((el,i)=>{
-  neurons.push({el,x:Math.random()*window.innerWidth*0.3+50,y:Math.random()*window.innerHeight,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,r:75});
+/* SECTION reveal */
+document.querySelectorAll(".section").forEach(sec => {
+  new IntersectionObserver(e => {
+    if (e[0].isIntersecting) sec.classList.add("visible");
+  }, { threshold: 0.2 }).observe(sec);
 });
-function animateNeurons(){
-  for(let i=0;i<neurons.length;i++){
-    let a=neurons[i];
-    a.x+=a.vx; a.y+=a.vy;
-    if(a.x<50||a.x>window.innerWidth-50)a.vx*=-1;
-    if(a.y<50||a.y>window.innerHeight-50)a.vy*=-1;
-    // Collision
-    for(let j=0;j<neurons.length;j++){
-      if(i===j)continue;
-      let b=neurons[j];
-      let dx=a.x-b.x, dy=a.y-b.y, d=Math.sqrt(dx*dx+dy*dy);
-      if(d<150){a.vx*=-1;a.vy*=-1;b.vx*=-1;b.vy*=-1;}
-    }
-    a.el.style.transform=`translate(${a.x}px,${a.y}px) rotate(${a.x}deg)`;
+
+/* STAT animation */
+document.querySelectorAll(".stat").forEach(stat => {
+  new IntersectionObserver(e => {
+    if (!e[0].isIntersecting) return;
+    let val = 0, target = +stat.dataset.target;
+    let step = target / 70;
+    let t = setInterval(() => {
+      val += step;
+      stat.textContent = Math.round(val);
+      if (val >= target) {
+        stat.textContent = target;
+        clearInterval(t);
+      }
+    }, 20);
+  }, { threshold: 0.6 }).observe(stat);
+});
+
+/* STABLE NEURON MOTION (NON-JITTERY) */
+const neurons = document.querySelectorAll(".neuron");
+neurons.forEach((n, i) => {
+  const left = i < 4;
+  let x = left ? 40 : window.innerWidth - 200;
+  let y = Math.random() * (window.innerHeight - 300) + 150;
+  let vx = (Math.random() * 0.25 + 0.15) * (left ? 1 : -1);
+  let vy = Math.random() * 0.25 + 0.15;
+  let rot = Math.random() * 360;
+
+  function animate() {
+    x += vx;
+    y += vy;
+    rot += 0.05;
+
+    if (left && (x < 20 || x > 160)) vx *= -1;
+    if (!left && (x < window.innerWidth - 300 || x > window.innerWidth - 160)) vx *= -1;
+    if (y < 120 || y > window.innerHeight - 220) vy *= -1;
+
+    n.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
+    requestAnimationFrame(animate);
   }
-  requestAnimationFrame(animateNeurons);
-}
-animateNeurons();
+  animate();
+});
 </script>
+
 </body>
 </html>
