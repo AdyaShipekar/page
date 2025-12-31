@@ -3,120 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Granulyze | iGEM 2025</title>
+<title>GRANULYZE | iGEM 2025</title>
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --blue-main: #6b9cff;
-  --blue-soft: #eaf1ff;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
+  --blue: #6b9cff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --bg: #fafcff;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #fafcff;
-  color: var(--text-main);
-  line-height: 1.7;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 1.1rem;
 }
 
-/* ---------- HERO ---------- */
+/* ---------- TITLE ---------- */
 .hero {
   position: relative;
-  min-height: 90vh;
+  height: 100vh;
+  background-image: url("https://adyashipekar.github.io/page/background.png");
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
-  background: radial-gradient(circle at top, #f2f6ff, #ffffff);
+  transition: opacity 0.6s ease;
+  z-index: 2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(250,252,255,0.75);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
 }
 
 .hero h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: 3.5rem;
-  color: var(--blue-main);
-  z-index: 2;
+  font-size: 5rem;
+  letter-spacing: 0.35rem;
+  color: var(--blue);
 }
 
 .hero p {
-  max-width: 700px;
-  margin: 1rem auto 0;
-  color: var(--text-muted);
-  z-index: 2;
+  max-width: 800px;
+  margin: 1.5rem auto 0;
+  font-size: 1.25rem;
+  color: var(--muted);
 }
 
-/* Floating neuron images */
-.floating {
+/* ---------- FLOATING NEURONS ---------- */
+.neuron-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.neuron {
   position: absolute;
-  width: 180px;
-  opacity: 0.25;
-  animation: float 18s infinite ease-in-out;
-}
-
-/* REPLACE src URLs AFTER UPLOADING IMAGES */
-.floating.one { top: 10%; left: 8%; animation-delay: 0s; }
-.floating.two { top: 60%; left: 12%; animation-delay: 4s; }
-.floating.three { top: 20%; right: 10%; animation-delay: 2s; }
-.floating.four { top: 65%; right: 15%; animation-delay: 6s; }
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-40px); }
-  100% { transform: translateY(0px); }
+  width: 120px;
+  opacity: 0.35;
 }
 
 /* ---------- CONTENT ---------- */
 .section {
-  max-width: 1000px;
-  margin: 6rem auto;
-  padding: 0 2rem;
-}
-
-.reveal {
+  max-width: 1100px;
+  margin: 7rem auto;
+  padding: 0 3rem;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(60px);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-.reveal.visible {
+.section.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.4rem;
-  color: var(--blue-main);
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  color: var(--blue);
+  margin-bottom: 1.2rem;
 }
 
-/* ---------- INTERACTIVE STAT ---------- */
+/* ---------- STATS ---------- */
 .stat {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 700;
-  color: var(--blue-main);
+  color: var(--blue);
 }
 
 .stat-label {
-  color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  color: var(--muted);
+  margin-bottom: 3.5rem;
+}
+
+/* ---------- PLACEHOLDER ---------- */
+.placeholder {
+  margin: 2.5rem 0;
+  padding: 2.5rem;
+  border: 2px dashed #dbe4ff;
+  border-radius: 16px;
+  text-align: center;
+  color: var(--muted);
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-  margin-top: 6rem;
-  padding: 2rem;
+  margin-top: 7rem;
+  padding: 2.5rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: 1rem;
+  color: var(--muted);
   border-top: 1px solid #e2e8f0;
 }
 </style>
@@ -125,97 +144,149 @@ footer {
 <body>
 
 <!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>Granulyze</h1>
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>GRANULYZE</h1>
     <p>
-      A synthetic biology approach to slowing neurodegeneration in
-      Amyotrophic Lateral Sclerosis by targeting stress granule pathology.
+      A synthetic biology strategy to mitigate stress-granule-driven
+      neurodegeneration in Amyotrophic Lateral Sclerosis.
     </p>
   </div>
-
-  <!-- Upload neuron images, then replace src -->
-  <img class="floating one" src="https://adyashipekar.github.io/page/neuron.png">
-  <img class="floating two" src="https://adyashipekar.github.io/page/neuron.png">
-  <img class="floating three" src="https://adyashipekar.github.io/page/neuron.png">
-  <img class="floating four" src="https://adyashipekar.github.io/page/neuron.png">
 </section>
 
+<!-- FLOATING NEURONS (hidden initially) -->
+<div class="neuron-layer" id="neurons">
+  <!-- All use SAME image URL -->
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+  <img class="neuron" src="https://adyashipekar.github.io/page/neuron.png">
+</div>
+
 <!-- IMPACT -->
-<section class="section reveal">
+<section class="section">
   <h2>The Impact of ALS</h2>
   <div class="stat" data-target="90">0</div>
   <div class="stat-label">Minutes between ALS diagnoses worldwide</div>
-</section>
 
-<section class="section reveal">
   <div class="stat" data-target="48">0</div>
   <div class="stat-label">Average months of life expectancy post-diagnosis</div>
-</section>
 
-<section class="section reveal">
   <div class="stat" data-target="70">0</div>
-  <div class="stat-label">% projected global increase by 2040</div>
+  <div class="stat-label">Percent projected global increase by 2040</div>
 </section>
 
-<!-- MECHANISM -->
-<section class="section reveal">
-  <h2>Why ALS Progresses</h2>
+<!-- BIOLOGY -->
+<section class="section">
+  <h2>The Biology Behind ALS</h2>
   <p>
     Under cellular stress, neurons form stress granules to protect RNA.
-    In ALS, these granules persist, promoting pathological aggregation of
-    TDP-43 and accelerating neuronal death.
+    In ALS, persistent granules seed pathological TDP-43 aggregation,
+    accelerating neuronal degeneration.
   </p>
+  <div class="placeholder">Cellular mechanism illustration</div>
 </section>
 
 <!-- SOLUTION -->
-<section class="section reveal">
-  <h2>Our Approach</h2>
+<section class="section">
+  <h2>Our Dual-Layered Solution</h2>
   <p>
-    Granulyze employs a dual-strategy: antisense oligonucleotides to reduce
-    stress granule formation and RNA aptamers to inhibit TDP-43 aggregation.
+    Granulyze combines antisense oligonucleotides to reduce stress granule
+    formation with RNA aptamers that inhibit toxic TDP-43 aggregation.
   </p>
+  <div class="placeholder">Therapeutic strategy diagram</div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="section">
+  <h2>Before and After Treatment</h2>
+  <div class="placeholder">Untreated neuron</div>
+  <div class="placeholder">Post-Granulyze treated neuron</div>
+</section>
+
+<!-- VIDEO -->
+<section class="section">
+  <h2>Project Overview Video</h2>
+  <div class="placeholder">Embedded video</div>
+</section>
+
+<!-- REFERENCES -->
+<section class="section">
+  <h2>References & Support</h2>
+  <div class="placeholder">Sponsor logos</div>
 </section>
 
 <footer>
-  © 2025 iGEM — Content licensed under CC BY 4.0
+  © 2025 iGEM — Creative Commons Attribution 4.0 International
 </footer>
 
 <script>
-/* Scroll reveal */
-const reveals = document.querySelectorAll('.reveal');
+/* HERO fade + neuron reveal */
+window.addEventListener("scroll", () => {
+  const hero = document.getElementById("hero");
+  const neurons = document.getElementById("neurons");
+  const progress = window.scrollY / window.innerHeight;
+
+  hero.style.opacity = Math.max(0, 1 - progress * 1.3);
+
+  if (progress > 0.8) {
+    neurons.style.opacity = 1;
+  }
+});
+
+/* SECTION reveal */
+const sections = document.querySelectorAll(".section");
 const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
+  entries.forEach(e => e.isIntersecting && e.target.classList.add("visible"));
 }, { threshold: 0.2 });
+sections.forEach(s => revealObserver.observe(s));
 
-reveals.forEach(r => revealObserver.observe(r));
-
-/* Animated numbers */
-const stats = document.querySelectorAll('.stat');
+/* STAT animation */
+const stats = document.querySelectorAll(".stat");
 const statObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     const el = entry.target;
     const target = +el.dataset.target;
-    let count = 0;
-    const step = target / 60;
-
-    const interval = setInterval(() => {
-      count += step;
-      el.textContent = Math.round(count);
-      if (count >= target) {
+    let value = 0;
+    const step = target / 70;
+    const timer = setInterval(() => {
+      value += step;
+      el.textContent = Math.round(value);
+      if (value >= target) {
         el.textContent = target;
-        clearInterval(interval);
+        clearInterval(timer);
       }
     }, 20);
-
     statObserver.unobserve(el);
   });
 }, { threshold: 0.6 });
-
 stats.forEach(s => statObserver.observe(s));
+
+/* FLOATING NEURONS MOTION */
+const neurons = document.querySelectorAll(".neuron");
+neurons.forEach((n, i) => {
+  let x = i < 4 ? 20 : window.innerWidth - 160;
+  let y = Math.random() * window.innerHeight;
+  let vx = (Math.random() * 0.4 + 0.2) * (i % 2 ? 1 : -1);
+  let vy = Math.random() * 0.4 + 0.2;
+
+  function animate() {
+    x += vx;
+    y += vy;
+
+    if (y < 20 || y > window.innerHeight - 160) vy *= -1;
+    if (x < 20 || x > window.innerWidth - 160) vx *= -1;
+
+    n.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+});
 </script>
 
 </body>
