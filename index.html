@@ -1,276 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iGEM 2025 | Project Wiki</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #7aa7ff;
-      --primary-dark: #557fd6;
-      --background: #f9fbff;
-      --surface: #ffffff;
-      --accent: #e6efff;
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--background);
-      color: var(--text-main);
-      line-height: 1.75;
-      display: flex;
-    }
-
-    /* ---------------- SIDEBAR ---------------- */
-    aside {
-      width: 260px;
-      background: var(--surface);
-      border-right: 1px solid var(--border);
-      padding: 2rem 1.5rem;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      overflow-y: auto;
-    }
-
-    aside h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.8rem;
-      color: var(--primary-dark);
-      margin-bottom: 2rem;
-    }
-
-    aside nav ul { list-style: none; }
-
-    aside nav li { margin-bottom: 0.75rem; }
-
-    aside nav a {
-      text-decoration: none;
-      color: var(--text-main);
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    aside nav a:hover { color: var(--primary-dark); }
-
-    /* ---------------- MAIN CONTENT ---------------- */
-    main {
-      margin-left: 260px;
-      padding: 4rem 5vw;
-      max-width: 1100px;
-    }
-
-    section {
-      margin-bottom: 6rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.3rem;
-      color: var(--primary-dark);
-      margin-bottom: 1rem;
-    }
-
-    section h3 {
-      font-size: 1.2rem;
-      color: var(--primary-dark);
-      margin-top: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    section p {
-      color: var(--text-muted);
-      max-width: 900px;
-      margin-bottom: 1.2rem;
-    }
-
-    /* ---------------- CONTENT BLOCK ---------------- */
-    .content-block {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem;
-      margin-top: 2rem;
-    }
-
-    /* ---------------- IMAGE PLACEHOLDER ---------------- */
-    .image-placeholder {
-      border: 2px dashed var(--border);
-      border-radius: 14px;
-      padding: 2rem;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 2rem;
-    }
-
-    /* ---------------- FOOTER ---------------- */
-    footer {
-      margin-left: 260px;
-      padding: 3rem 5vw;
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* ---------------- RESPONSIVE ---------------- */
-    @media (max-width: 900px) {
-      aside {
-        position: relative;
-        width: 100%;
-        height: auto;
-      }
-
-      main, footer { margin-left: 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iGEM 2025 | Granulyze ALS Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #7aa7ff;
+  --primary-dark: #557fd6;
+  --background: #fafcff;
+  --surface: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+}
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family:'Inter', sans-serif; background:var(--background); color:var(--text-main); line-height:1.7; padding:2rem; }
+.section { margin-bottom:4rem; opacity:0; transform:translateY(30px); transition:opacity 0.8s ease, transform 0.8s ease; }
+.section.visible { opacity:1; transform:translateY(0); }
+h1,h2,h3 { font-family:'DM Serif Display', serif; color:var(--primary-dark); margin-bottom:1rem; }
+h1{ font-size:2.8rem; }
+h2{ font-size:2.2rem; }
+h3{ font-size:1.4rem; margin-top:1.5rem; }
+p{ color:var(--text-muted); margin-bottom:1rem; font-size:1rem; }
+.number-emphasis{ font-size:3rem; font-weight:700; color:var(--primary); margin:0.5rem 0; }
+.placeholder-img{ width:100%; border:2px dashed var(--border); border-radius:12px; text-align:center; padding:2rem; color:var(--text-muted); font-size:0.95rem; margin-top:1.5rem; }
+.solution-block{ border-left:5px solid var(--primary); padding-left:1rem; margin-top:1.5rem; }
+footer{ margin-top:6rem; border-top:1px solid var(--border); padding-top:1.8rem; text-align:center; font-size:0.9rem; color:var(--text-muted);}
+</style>
 </head>
 <body>
 
-  <aside>
-    <h1>iGEM 2025</h1>
-    <nav>
-      <ul>
-        <li><a href="#project">Project</a></li>
-        <li><a href="#background">Background</a></li>
-        <li><a href="#design">Design</a></li>
-        <li><a href="#engineering">Engineering</a></li>
-        <li><a href="#modeling">Modeling</a></li>
-        <li><a href="#human-practices">Human Practices</a></li>
-        <li><a href="#safety">Safety</a></li>
-        <li><a href="#team">Team</a></li>
-      </ul>
-    </nav>
-  </aside>
+<div class="section" id="impact">
+  <h1>Every 90 minutes, someone is diagnosed with and passes from Amyotrophic Lateral Sclerosis (ALS)</h1>
+  <div class="number-emphasis">90</div>
+  <h2>Life expectancy post-diagnosis</h2>
+  <div class="number-emphasis">48 months (~4 years)</div>
+  <h2>Predicted global increase by 2040</h2>
+  <div class="number-emphasis">70%</div>
+  <div class="placeholder-img">Hover map placeholder: Expected ALS statistics 2015 → 2040</div>
+</div>
 
-  <main>
+<div class="section" id="mechanism">
+  <h2>Cellular Mechanism in ALS</h2>
+  <p>Under cellular stress, Stress Granules (SGs) become dysfunctional and form additional "organelles". Excessive SG formation is linked to pathological TDP-43 protein aggregation in neurons.</p>
+  <div class="placeholder-img">Cell with stress granules illustration</div>
+  <div class="placeholder-img">TDP-43 aggregate illustration</div>
+</div>
 
-    <section id="project">
-      <h2>Project Overview</h2>
-      <p>
-        This section will introduce the core idea of your iGEM project. Once a
-        topic is chosen, describe the problem, who it affects, and why current
-        solutions are insufficient.
-      </p>
-      <div class="content-block">
-        <p>
-          Use this space to clearly frame your guiding research question and
-          summarize your proposed synthetic biology approach.
-        </p>
-      </div>
-    </section>
+<div class="section" id="solution">
+  <h2>Our Dual-Approach Solution</h2>
+  <div class="solution-block">
+    <h3>Antisense Oligonucleotide Therapy</h3>
+    <p>Novel antisense oligonucleotides knock down proteins implicated in stress granule formation.</p>
+  </div>
+  <div class="placeholder-img">Antisense oligonucleotide therapy illustration</div>
+  <div class="solution-block">
+    <h3>RNA Aptamer Therapy</h3>
+    <p>Computational modeling and in-vitro testing created RNA aptamers that prevent TDP-43 aggregate formation.</p>
+  </div>
+  <div class="placeholder-img">RNA aptamer therapy illustration</div>
 
-    <section id="background">
-      <h2>Background & Motivation</h2>
-      <p>
-        Provide scientific and societal context. Judges expect to see evidence
-        of literature review, stakeholder input, and a clear rationale for why
-        this project matters.
-      </p>
+  <h2>Before vs. After Therapy</h2>
+  <div class="placeholder-img">Before therapy illustration</div>
+  <div class="placeholder-img">After therapy illustration</div>
+</div>
 
-      <div class="image-placeholder">
-        Optional image: literature overview diagram, biological pathway, or
-        problem illustration
-      </div>
-    </section>
+<div class="section" id="promo">
+  <h2>Watch Our Promotional Video</h2>
+  <div class="placeholder-img">Embedded video placeholder</div>
+</div>
 
-    <section id="design">
-      <h2>System Design</h2>
-      <p>
-        Explain the high-level architecture of your system. Break it down into
-        sensing, processing, and output modules.
-      </p>
-      <div class="content-block">
-        <h3>Modularity</h3>
-        <p>
-          Describe how individual components can be independently tested and
-          optimized.
-        </p>
-      </div>
-    </section>
+<div class="section" id="references">
+  <h2>References</h2>
+  <ul>
+    <li>University of Michigan Health – ALS Facts & Figures</li>
+    <li>Nature Communications, 2016 – TDP-43 and Stress Granules</li>
+    <li>Frontiers in Cellular Neuroscience, 2020 – TDP-43 Pathology Overview</li>
+    <li>Experimental & Molecular Medicine, 2020 – SGs and Neurodegeneration</li>
+  </ul>
 
-    <section id="engineering">
-      <h2>Engineering Cycle</h2>
-      <p>
-        Document your design–build–test–learn iterations. This is a core judging
-        criterion and should evolve throughout the season.
-      </p>
+  <h2>Community Supporters</h2>
+  <div class="placeholder-img">Sponsor logos placeholder: IDT, Qualcomm, UCSD, Sanford Burnham Prebys, ALS San Diego</div>
 
-      <div class="image-placeholder">
-        Optional image: DBTL cycle diagram or experimental workflow
-      </div>
-    </section>
+  <h3>Contact Us</h3>
+  <p>Email: delnorteigem@gmail.com</p>
+  <p>Address: 16601 Nighthawk Ln, San Diego, CA 92127</p>
+  <p>Instagram: @dnhsigem</p>
+</div>
 
-    <section id="modeling">
-      <h2>Modeling</h2>
-      <p>
-        Mathematical and computational modeling used to predict behavior,
-        optimize parameters, or interpret experimental results.
-      </p>
-    </section>
+<footer>
+  © 2025 – Content licensed under Creative Commons Attribution 4.0 International.
+</footer>
 
-    <section id="human-practices">
-      <h2>Human Practices</h2>
-      <p>
-        Integrated Human Practices should demonstrate how ethical reflection
-        and stakeholder engagement shaped your technical decisions.
-      </p>
-    </section>
-
-    <section id="safety">
-      <h2>Safety & Responsibility</h2>
-      <p>
-        Discuss biological safety, risk mitigation, and responsible research
-        practices embedded in your project design.
-      </p>
-    </section>
-
-    <section id="team">
-      <h2>Team</h2>
-      <p>
-        Introduce your team members, roles, advisors, and acknowledgements.
-      </p>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>© 2025 iGEM Team · International Genetically Engineered Machine Competition</p>
-  </footer>
-
-  <script>
-    /* Scroll-triggered fade-in animation */
-    const sections = document.querySelectorAll('section');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    sections.forEach(section => observer.observe(section));
-  </script>
+<script>
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+}, { threshold:0.15 });
+sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
