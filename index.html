@@ -120,7 +120,7 @@ nav {
   margin-top: 1.8rem;
   font-size: 1.3rem;
   color: #ffffff;
-  max-width: 900px;
+  max-width: 750px;
 }
 
 /* ---------- FLOATING NEURONS ---------- */
@@ -186,6 +186,7 @@ h2 {
   font-size: 1.3rem;
   color: var(--muted);
   margin-top: 0.5rem;
+  max-width: 250px;
 }
 
 /* ---------- PLACEHOLDER ---------- */
@@ -253,15 +254,15 @@ footer {
   <div class="stats-grid">
     <div>
       <div class="stat" data-target="90">0</div>
-      <div class="stat-label">Minutes between diagnoses</div>
+      <div class="stat-label">minutes pass between each diagnosis and death from ALS</div>
     </div>
     <div>
-      <div class="stat" data-target="48">0</div>
-      <div class="stat-label">Months life expectancy</div>
+      <div class="stat" data-target="24-48">0</div>
+      <div class="stat-label">months is the life expectancy for diagnosed ALS patients</div>
     </div>
     <div>
       <div class="stat" data-target="70">0</div>
-      <div class="stat-label">Percent increase by 2040</div>
+      <div class="stat-label">percent predicted global increase in ALS by 2040</div>
     </div>
   </div>
 </section>
@@ -272,14 +273,13 @@ footer {
     Under cellular stress in ALS, stress granules become dysfunctional and form additional "organelles". 
     Excessive SG formation and dysfunction is linked to pathological TDP-43 protein aggregation in neurons.
   </p>
-  <div class="placeholder">Cellular mechanism illustration</div>
+  <img src="https://adyashipekar.github.io/page/bio_image.png" alt="Cellular mechanism illustration" class="section-image">
 </section>
 
 <section class="section" id="solution">
   <h2>Our Dual-Layered Solution</h2>
   <p>
-    Granulyze combines antisense oligonucleotides with RNA aptamers
-    to disrupt toxic aggregation pathways.
+    We have developed novel antisense oligonucleotides to knock down proteins implicated in stress granule formation.
   </p>
   <div class="placeholder">Therapeutic strategy diagram</div>
 </section>
@@ -378,8 +378,8 @@ neurons.forEach((n, i) => {
     rot += 0.05;
 
     // neuron boundaries
-    if (left && (x < 20 || x > 140)) vx *= -1;
-    if (!left && (x < window.innerWidth - 300 || x > window.innerWidth - 140)) vx *= -1;
+    if (left && (x < 20 || x > 130)) vx *= -1;
+    if (!left && (x < window.innerWidth - 300 || x > window.innerWidth - 130)) vx *= -1;
     if (y < 120 || y > window.innerHeight - 220) vy *= -1;
 
     n.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
