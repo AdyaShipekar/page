@@ -378,8 +378,8 @@ neurons.forEach((n, i) => {
     rot += 0.05;
 
     // neuron boundaries
-    if (left && (x < 20 || x > 160)) vx *= -1;
-    if (!left && (x < window.innerWidth - 300 || x > window.innerWidth - 160)) vx *= -1;
+    if (left && (x < 20 || x > 140)) vx *= -1;
+    if (!left && (x < window.innerWidth - 300 || x > window.innerWidth - 140)) vx *= -1;
     if (y < 120 || y > window.innerHeight - 220) vy *= -1;
 
     n.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
