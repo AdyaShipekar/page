@@ -209,6 +209,18 @@ h2 {
   color: var(--blue);
 }
 
+.stat-bg img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;      /* adjust size */
+  height: auto;
+  opacity: 0.5;      /* subtle behind the number */
+  pointer-events: none;
+  z-index: 0;
+}
+
 .stat-label {
   font-size: 1.2rem;
   color: var(--muted);
@@ -279,15 +291,26 @@ footer {
 <section class="section" id="impact">
   <h2>The Impact of Amyotrophic Lateral Sclerosis</h2>
   <div class="stats-grid">
-    <div>
+    <div class="stat-container">
+      <div class="stat-bg">
+        <img src="https://adyashipekar.github.io/page/clock.png" alt="Clock" />
+      </div>
       <div class="stat" data-target="90">0</div>
       <div class="stat-label">minutes pass between each diagnosis and death from ALS</div>
     </div>
-    <div>
+
+    <div class="stat-container">
+      <div class="stat-bg">
+        <img src="https://adyashipekar.github.io/page/calendar.png" alt="Calendar" />
+      </div>
       <div class="stat" data-target="48">0</div>
       <div class="stat-label">months is the life expectancy for diagnosed ALS patients</div>
     </div>
-    <div>
+
+    <div class="stat-container">
+      <div class="stat-bg">
+        <img src="https://adyashipekar.github.io/page/globe.png" alt="Globe" />
+      </div>
       <div class="stat" data-target="70">0</div>
       <div class="stat-label">percent predicted global increase in ALS by 2040</div>
     </div>
@@ -327,7 +350,7 @@ footer {
 <section class="section" id="video">
   <h2>Project Overview Video</h2>
   <iframe width="800" height="450" 
-        src="https://video.igem.org/w/f2ytTLkmanXkjTF7CkB334?start=0s" 
+        src="https://video.igem.org/w/f2ytTLkmanXkjTF7CkB334" 
         title="Project Overview Video" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
