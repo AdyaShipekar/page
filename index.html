@@ -339,7 +339,9 @@ document.querySelectorAll(".stat").forEach(stat => {
 });
 
 /* STABLE NEURON MOTION (NON-JITTERY) */
+const MIN_DIST = 170;
 const neurons = document.querySelectorAll(".neuron");
+const neuronStates = []
 neurons.forEach((n, i) => {
   const left = i < 4;
   let x = left ? 40 : window.innerWidth - 200;
@@ -351,17 +353,42 @@ neurons.forEach((n, i) => {
   let vy = Math.random() * 0.25 + 0.15;
   let rot = Math.random() * 360;
 
+  const state = { n, x, y, vx, vy, rot };
+  neuronStates.push(state);
+
   function animate() {
+    // prevent neurons from overlapping
+    neuronStates.forEach(other => {
+      if (other === state) return;
+
+      const dx = x - other.x;
+      const dy = y - other.y;
+      const dist = Math.hypot(dx, dy);
+
+      if (dist > 0 && dist < MIN_DIST) {
+        const force = (MIN_DIST - dist) * 0.002;
+        x += (dx / dist) * force;
+        y += (dy / dist) * force;
+      }
+    });
+    
+    // neuron motion 
     x += vx;
     y += vy;
     rot += 0.05;
 
+    // neuron boundaries
     if (left && (x < 20 || x > 160)) vx *= -1;
     if (!left && (x < window.innerWidth - 300 || x > window.innerWidth - 160)) vx *= -1;
     if (y < 120 || y > window.innerHeight - 220) vy *= -1;
 
     n.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
+    
+    state.x = x;
+    state.y = y;
+
     requestAnimationFrame(animate);
+
   }
   animate();
 });
