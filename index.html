@@ -209,30 +209,34 @@ h2 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  height: 200px;               /* give the container a height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;      /* center text vertically */
+  padding: 2rem;
 }
 
 .stat1 { background-image: url("https://adyashipekar.github.io/page/clock.png"); }
 .stat2 { background-image: url("https://adyashipekar.github.io/page/calendar.png"); }
 .stat3 { background-image: url("https://adyashipekar.github.io/page/globe.png"); }
 
-.stat, .stat-label {
-  position: relative;            /* ensures it sits above the background */
-  z-index: 1;
-}
 
 .stat {
+  position: relative;
   font-size: 5.2rem;
   font-weight: 700;
   color: var(--blue);
-  z-index: 1;
+  z-index: 2;
 }
 
 .stat-label {
+  position: relative;
   font-size: 1.2rem;
   color: var(--muted);
   margin-top: 0.5rem;
   max-width: 350px;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* ---------- PLACEHOLDER ---------- */
