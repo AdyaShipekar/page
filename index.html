@@ -203,17 +203,6 @@ h2 {
   text-align: center;
 }
 
-.stat {
-  font-size: 5.2rem;
-  font-weight: 700;
-  color: var(--blue);
-  z-index: 1;
-}
-
-.stat-container {
-  position: relative;
-}
-
 .stat-bg img {
   position: absolute;
   top: 50%;
@@ -226,11 +215,23 @@ h2 {
   z-index: 0;
 }
 
+.stat {
+  font-size: 5.2rem;
+  font-weight: 700;
+  color: var(--blue);
+  z-index: 1;
+}
+
+.stat-container {
+  position: relative;
+}
+
 .stat-label {
   font-size: 1.2rem;
   color: var(--muted);
   margin-top: 0.5rem;
   max-width: 350px;
+  z-index: 1;
 }
 
 /* ---------- PLACEHOLDER ---------- */
@@ -355,10 +356,10 @@ footer {
 <section class="section" id="video">
   <h2>Project Overview Video</h2>
   <iframe width="800" height="450" 
-        src="https://video.igem.org/w/f2ytTLkmanXkjTF7CkB334" 
+        src="https://video.igem.org/embed/f2ytTLkmanXkjTF7CkB334" 
         title="Project Overview Video" 
         frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allow-scripts; allow-same-origin; allow-popups" 
         allowfullscreen>
 </iframe>
 </section>
