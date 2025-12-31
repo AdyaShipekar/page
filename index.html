@@ -168,6 +168,26 @@ nav {
   margin: 2rem auto;  
 }
 
+.comparison {
+  display: flex;
+  align-items: center;       /* vertically align images with text */
+  justify-content: center;   /* center the whole row horizontally */
+  gap: 1.5rem;               /* space between images and "vs." */
+  margin: 2rem 0;            /* vertical spacing from other content */
+}
+
+.comparison-image {
+  max-width: 250px;  /* adjust size as needed */
+  height: auto;
+  display: block;
+}
+
+.vs-text {
+  font-size: 1.5rem; 
+  font-weight: 600;
+  color: var(--blue);
+}
+
 h2 {
   font-family: 'DM Serif Display', serif;
   font-size: 3rem;
@@ -190,10 +210,10 @@ h2 {
 }
 
 .stat-label {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--muted);
   margin-top: 0.5rem;
-  max-width: 250px;
+  max-width: 350px;
 }
 
 /* ---------- PLACEHOLDER ---------- */
@@ -288,13 +308,20 @@ footer {
   <p>
     We have developed novel antisense oligonucleotides to knock down proteins implicated in stress granule formation.
   </p>
-  <div class="placeholder">Therapeutic strategy diagram</div>
+  <img src="https://adyashipekar.github.io/page/solution_image.png" alt="Therapeutic strategy diagram" class="section-image">
+  <p>
+    Furthermore, we used computational modeling and in-vitro testing to create a RNA aptamer that prevents the formation of TDP-43 aggregates.
+  </p>
+  <img src="https://adyashipekar.github.io/page/rna-aptamer.png" alt="RNA aptamer image" class="section-image">
 </section>
 
 <section class="section" id="comparison">
   <h2>Before and After Treatment</h2>
-  <div class="placeholder">Untreated neuron</div>
-  <div class="placeholder">Post-treatment neuron</div>
+  <div class="comparison">
+  <img src="https://adyashipekar.github.io/page/before_image.png" alt="Untreated neuron" class="comparison-image">
+  <span class="vs-text">vs.</span>
+  <img src="https://adyashipekar.github.io/page/after_image.png" alt="Post-treatment neuron" class="comparison-image">
+</div>
 </section>
 
 <section class="section" id="video">
