@@ -203,16 +203,21 @@ h2 {
   text-align: center;
 }
 
-.stat-bg img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;      /* adjust size */
-  height: auto;
-  opacity: 0.5;      /* subtle behind the number */
-  pointer-events: none;
-  z-index: 0;
+.stat-container {
+  position: relative;
+  padding: 2rem 0;              /* space for the background image */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.stat1 { background-image: url("https://adyashipekar.github.io/page/clock.png"); }
+.stat2 { background-image: url("https://adyashipekar.github.io/page/calendar.png"); }
+.stat3 { background-image: url("https://adyashipekar.github.io/page/globe.png"); }
+
+.stat, .stat-label {
+  position: relative;            /* ensures it sits above the background */
+  z-index: 1;
 }
 
 .stat {
@@ -220,10 +225,6 @@ h2 {
   font-weight: 700;
   color: var(--blue);
   z-index: 1;
-}
-
-.stat-container {
-  position: relative;
 }
 
 .stat-label {
@@ -297,26 +298,17 @@ footer {
 <section class="section" id="impact">
   <h2>The Impact of Amyotrophic Lateral Sclerosis</h2>
   <div class="stats-grid">
-    <div class="stat-container">
-      <div class="stat-bg">
-        <img src="https://adyashipekar.github.io/page/clock.png" alt="Clock" />
-      </div>
+    <div class="stat-container stat1">
       <div class="stat" data-target="90">0</div>
       <div class="stat-label">minutes pass between each diagnosis and death from ALS</div>
     </div>
 
-    <div class="stat-container">
-      <div class="stat-bg">
-        <img src="https://adyashipekar.github.io/page/calendar.png" alt="Calendar" />
-      </div>
+    <div class="stat-container stat2">
       <div class="stat" data-target="48">0</div>
       <div class="stat-label">months is the life expectancy for diagnosed ALS patients</div>
     </div>
 
-    <div class="stat-container">
-      <div class="stat-bg">
-        <img src="https://adyashipekar.github.io/page/globe.png" alt="Globe" />
-      </div>
+    <div class="stat-container stat3">
       <div class="stat" data-target="70">0</div>
       <div class="stat-label">percent predicted global increase in ALS by 2040</div>
     </div>
@@ -355,13 +347,7 @@ footer {
 
 <section class="section" id="video">
   <h2>Project Overview Video</h2>
-  <iframe width="800" height="450" 
-        src="https://video.igem.org/embed/f2ytTLkmanXkjTF7CkB334" 
-        title="Project Overview Video" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allow-scripts; allow-same-origin; allow-popups" 
-        allowfullscreen>
-</iframe>
+  <iframe title="DNHS-SanDiego-Ca: Granulyze: A Novel Solution to Amyotrophic Lateral Sclerosis T... (2025) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/f2ytTLkmanXkjTF7CkB334" style="border: 0px;" allow="fullscreen" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
 </section>
 
 <section class="section" id="references">
